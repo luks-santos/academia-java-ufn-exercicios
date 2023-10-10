@@ -50,12 +50,7 @@ public class Main {
 
         System.out.println("\nRemoção de Livro");
         String isbnToRemove = "ISBN-3";
-        boolean removed = library.removeBookISBN(isbnToRemove);
-        if (removed) {
-            System.out.println("Livro com ISBN: " + isbnToRemove + " removido com sucesso.");
-        } else {
-            System.out.println("Livro com ISBN: " + isbnToRemove + " não encontrado na biblioteca.");
-        }
+        deleteBook(library, isbnToRemove);
 
         System.out.println("\nLivros na Biblioteca");
         printBooks(allBooks);
@@ -84,6 +79,14 @@ public class Main {
             System.out.println("Livro devolvido ISBN: " + isbn);
         } else {
             System.out.println("ISBN não existe ou Livro não está emprestado "  + isbn);
+        }
+    }
+    public static void deleteBook(Library library, String isbn) {
+        boolean removed = library.removeBookISBN(isbn);
+        if (removed) {
+            System.out.println("Livro com ISBN: " + isbn + " removido com sucesso.");
+        } else {
+            System.out.println("Livro com ISBN: " + isbn + " não encontrado na biblioteca.");
         }
     }
 }
