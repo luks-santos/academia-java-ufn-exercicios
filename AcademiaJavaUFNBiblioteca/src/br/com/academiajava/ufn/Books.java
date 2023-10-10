@@ -19,13 +19,6 @@ public class Books {
         this.isBorrowed = false;
     }
 
-    public Books(String title, String author, String isbn, boolean isBorrowed) {
-        this.title = title;
-        this.author = author;
-        this.isbn = isbn;
-        this.isBorrowed = isBorrowed;
-    }
-
     public String getTitle() {
         return title;
     }

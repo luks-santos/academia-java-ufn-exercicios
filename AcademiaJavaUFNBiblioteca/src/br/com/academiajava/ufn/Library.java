@@ -16,12 +16,19 @@ public class Library {
         bookList.add(book);
     }
 
-    public boolean removeBookISBN(String isbn) {
-        for (Books book: bookList) {
+    private Books searchByISBN(String isbn) {
+        for (Books book : bookList) {
             if (book.getIsbn().equals(isbn)) {
-                bookList.remove(book);
-                return true;
+                return book;
             }
+        }
+        return null;
+    }
+
+    public boolean removeBookISBN(String isbn) {
+        Books book = searchByISBN(isbn);
+        if (book != null) {
+            return bookList.remove(book);
         }
         return false;
     }
@@ -34,15 +41,6 @@ public class Library {
             }
         }
         return booksByTitleList;
-    }
-
-    private Books searchByISBN(String isbn) {
-        for (Books book : bookList) {
-            if (book.getIsbn().equals(isbn)) {
-                return book;
-            }
-        }
-        return null;
     }
 
     public boolean borrowBook(String isbn) {
@@ -62,7 +60,7 @@ public class Library {
         Books book = searchByISBN(isbn);
         if (book != null && book.isBorrowed()) {
             if(borrowedDate.isAfter(book.getDateLimitBorrowed())) {
-                System.out.println("O Livro foi devolvido com atraso " + book.getIsbn());
+                System.out.print("O Livro foi devolvido com atraso. " + book.getIsbn() + " ");
             }
             book.setDateLimitBorrowed(null);
             book.setBorrowed(false);

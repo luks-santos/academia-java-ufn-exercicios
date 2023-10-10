@@ -6,6 +6,49 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
+        Library library = getLibrary();
+
+        System.out.println("\nLivros na Biblioteca");
+        List<Books> allBooks = library.listBooks();
+        printBooks(allBooks);
+
+        String titleToSearch = "Retorno do Rei";
+        List<Books> booksByTitle = library.searchByTitle(titleToSearch);
+        System.out.println("\nLivros com o titulo '" + titleToSearch + "':");
+        printBooks(booksByTitle);
+
+        System.out.println("\nEmpréstimo de Livro");
+        String isbnToBorrow = "ISBN-1";
+        borrowBook(library, isbnToBorrow);
+        isbnToBorrow = "ISBN-2";
+        borrowBook(library, isbnToBorrow);
+        isbnToBorrow = "ISBN-2.1";
+        borrowBook(library, isbnToBorrow);
+        isbnToBorrow = "ISBN-1";
+        borrowBook(library, isbnToBorrow);
+
+        System.out.println("\nDevolução de Livro");
+        String isbnToReturn = "ISBN-1";
+        LocalDate borrowedDate = LocalDate.of(2023, 10, 31);
+        returnBook(library, isbnToReturn, borrowedDate);
+        isbnToReturn = "ISBN-5";
+        returnBook(library, isbnToReturn, borrowedDate);
+
+        System.out.println("\nRemoção de Livro");
+        String isbnToRemove = "ISBN-3";
+        deleteBook(library, isbnToRemove);
+        isbnToRemove = "ISBN-5";
+        deleteBook(library, isbnToRemove);
+
+        System.out.println("\nLivros na Biblioteca");
+        printBooks(allBooks);
+
+        System.out.println("\nLivros Emprestados");
+        List<Books> borrowedBooks = library.getBorrowedBooks();
+        printBooks(borrowedBooks);
+    }
+
+    private static Library getLibrary() {
         Books book1 = new Books("Blade Runner", "Philip K. Dick", "ISBN-1");
         Books book2 = new Books("Retorno do Rei", "J.R.R. Tolkien", "ISBN-2");
         Books book3 = new Books("Retorno do Rei", "J.R.R. Tolkien", "ISBN-2.1");
@@ -17,50 +60,9 @@ public class Main {
         library.addBook(book2);
         library.addBook(book3);
         library.addBook(book4);
-
-
-        System.out.println("\nLivros na Biblioteca");
-        List<Books> allBooks = library.listBooks();
-        printBooks(allBooks);
-
-        String titleToSearch = "Retorno do Rei";
-        List<Books> booksByTitle = library.searchByTitle(titleToSearch);
-        System.out.println("\nLivros com o titulo '" + titleToSearch + "':");
-        printBooks(booksByTitle);
-
-
-        System.out.println("\nEmpréstimo de Livro");
-        String isbnToBorrow = "ISBN-1";
-        borrowBook(library, isbnToBorrow);
-
-        isbnToBorrow = "ISBN-2";
-        borrowBook(library, isbnToBorrow);
-
-        isbnToBorrow = "ISBN-2.1";
-        borrowBook(library, isbnToBorrow);
-
-        isbnToBorrow = "ISBN-1";
-        borrowBook(library, isbnToBorrow);
-
-
-        System.out.println("\nDevolução de Livro");
-        String isbnToReturn = "ISBN-1";
-        LocalDate borrowedDate = LocalDate.of(2023, 10, 31);
-        returnBook(library, isbnToReturn, borrowedDate);
-
-        System.out.println("\nRemoção de Livro");
-        String isbnToRemove = "ISBN-3";
-        deleteBook(library, isbnToRemove);
-
-        System.out.println("\nLivros na Biblioteca");
-        printBooks(allBooks);
-
-
-        System.out.println("\nLivros Emprestados");
-        List<Books> borrowedBooks = library.getBorrowedBooks();
-        printBooks(borrowedBooks);
+        return library;
     }
-    
+
     public static void printBooks(List<Books> books) {
         for (Books book : books) {
             System.out.println(book);
