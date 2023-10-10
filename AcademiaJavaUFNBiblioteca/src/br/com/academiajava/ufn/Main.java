@@ -60,11 +60,13 @@ public class Main {
         List<Books> borrowedBooks = library.getBorrowedBooks();
         printBooks(borrowedBooks);
     }
+    
     public static void printBooks(List<Books> books) {
         for (Books book : books) {
             System.out.println(book);
         }
     }
+
     public static void borrowBook(Library library, String isbn) {
         boolean successfullyBorrowed = library.borrowBook(isbn);
         if (successfullyBorrowed) {
@@ -73,6 +75,7 @@ public class Main {
             System.out.println("ISBN não existe ou Livro já emprestado " + isbn);
         }
     }
+
     public static void returnBook(Library library, String isbn, LocalDate borrowedBook) {
         boolean successfullyReturn = library.returnBook(isbn, borrowedBook);
         if (successfullyReturn) {
@@ -81,6 +84,7 @@ public class Main {
             System.out.println("ISBN não existe ou Livro não está emprestado "  + isbn);
         }
     }
+
     public static void deleteBook(Library library, String isbn) {
         boolean removed = library.removeBookISBN(isbn);
         if (removed) {

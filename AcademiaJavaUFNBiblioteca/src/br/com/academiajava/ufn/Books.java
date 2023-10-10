@@ -11,6 +11,7 @@ public class Books {
     private LocalDate dateLimitBorrowed;
 
     public Books() {}
+
     public Books(String title, String author, String isbn) {
         this.title = title;
         this.author = author;
@@ -64,7 +65,6 @@ public class Books {
     public void setDateLimitBorrowed(LocalDate dateLimitBorrowed) {
         this.dateLimitBorrowed = dateLimitBorrowed;
     }
-
 
     public String toString() {
         return "Book{" +
