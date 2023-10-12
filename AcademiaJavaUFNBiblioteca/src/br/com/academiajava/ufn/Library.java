@@ -45,8 +45,7 @@ public class Library {
 
     public boolean borrowBook(String isbn) {
         Books book = searchByISBN(isbn);
-        if (book != null && !book.isBorrowed()) {
-            book.setBorrowed(true);
+        if (book != null && book.borrowed()) {
             LocalDate currentDate = LocalDate.now();
             int DAYS_LIMIT_BORROWED = 14;
             LocalDate limitDate = currentDate.plusDays(DAYS_LIMIT_BORROWED);
@@ -58,12 +57,11 @@ public class Library {
 
     public boolean returnBook(String isbn, LocalDate borrowedDate) {
         Books book = searchByISBN(isbn);
-        if (book != null && book.isBorrowed()) {
+        if (book != null && book.returnBook()) {
             if(borrowedDate.isAfter(book.getDateLimitBorrowed())) {
                 System.out.print("O Livro foi devolvido com atraso. " + book.getIsbn() + " ");
             }
             book.setDateLimitBorrowed(null);
-            book.setBorrowed(false);
             return true;
         }
         return false;

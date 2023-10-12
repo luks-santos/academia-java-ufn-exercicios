@@ -7,7 +7,7 @@ public class Books {
     private String title;
     private String author;
     private String isbn;
-    private boolean isBorrowed;
+    private boolean borrowed;
     private LocalDate dateLimitBorrowed;
 
     public Books() {}
@@ -16,7 +16,13 @@ public class Books {
         this.title = title;
         this.author = author;
         this.isbn = isbn;
-        this.isBorrowed = false;
+        this.borrowed = false;
+    }
+
+    public Books(String title, String author) {
+        this.title = title;
+        this.author = author;
+        this.borrowed = false;
     }
 
     public String getTitle() {
@@ -44,11 +50,28 @@ public class Books {
     }
 
     public boolean isBorrowed() {
-        return isBorrowed;
+        return borrowed;
     }
 
-    public void setBorrowed(boolean borrowed) {
-        isBorrowed = borrowed;
+    private void setBorrowed(boolean borrowed) {
+        this.borrowed = borrowed;
+    }
+
+    public boolean borrowed() {
+        if(borrowed) {
+            return false;
+        } else {
+            setBorrowed(true);
+            return true;
+        }
+    }
+
+    public boolean returnBook() {
+        if(borrowed) {
+            setBorrowed(false);
+            return true;
+        }
+        return false;
     }
 
     public LocalDate getDateLimitBorrowed() {
@@ -60,11 +83,17 @@ public class Books {
     }
 
     public String toString() {
-        return "Book{" +
-                "title='" + title + '\'' +
-                ", author='" + author + '\'' +
-                ", isbn='" + isbn + '\'' +
-                ", isBorrowed=" + isBorrowed +
-                '}';
+        String info;
+        info = "Título: " + title  +
+                ", Autor: '" + author;
+        if(isbn != "") {
+            info += ", ISBN: " + isbn;
+        }
+        if(borrowed) {
+            info += ", (Disponível)";
+        } else {
+            info += ", (Emprestado)";
+        }
+        return info;
     }
 }
