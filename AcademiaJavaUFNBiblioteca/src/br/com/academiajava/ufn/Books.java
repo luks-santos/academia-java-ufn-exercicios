@@ -2,7 +2,7 @@ package br.com.academiajava.ufn;
 
 import java.time.LocalDate;
 
-public class Books {
+public class Books implements Imprimivel {
 
     private String title;
     private String author;
@@ -80,6 +80,11 @@ public class Books {
 
     public void setDateLimitBorrowed(LocalDate dateLimitBorrowed) {
         this.dateLimitBorrowed = dateLimitBorrowed;
+    }
+
+    @Override
+    public boolean imprimir() {
+        return !borrowed;
     }
 
     public String toString() {

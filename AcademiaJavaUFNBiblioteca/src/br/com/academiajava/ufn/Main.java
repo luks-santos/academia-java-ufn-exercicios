@@ -46,6 +46,24 @@ public class Main {
         System.out.println("\nLivros Emprestados");
         List<Books> borrowedBooks = library.getBorrowedBooks();
         printBooks(borrowedBooks);
+
+        System.out.println("\nRevistas");
+        Magazine magazine1 = new Magazine("Magazine 1", "Company A", 1, 1);
+        Magazine magazine2 = new Magazine("Magazine 2", "Company B", 2, 5);
+        Magazine magazine3 = new Magazine("Magazine 3", "Company C", 3, 1);
+
+        if(magazine1.reserve()) {
+            System.out.println("Revista emprestada.");
+        }
+        if(!magazine1.reserve()) {
+            System.out.println("Revista já emprestada.");
+        }
+        System.out.println(magazine1);
+        magazine1.returnMagazine();
+        System.out.println(magazine1);
+
+        magazine1.imprimir();
+        System.out.println(magazine1);
     }
 
     private static Library getLibrary() {
@@ -54,12 +72,14 @@ public class Main {
         Books book3 = new Books("Retorno do Rei", "J.R.R. Tolkien", "ISBN-2.1");
         Books book4 = new Books("Elusive Samurai", "Yusei Matsui", "ISBN-3");
 
+
         Library library = new Library();
 
         library.addBook(book1);
         library.addBook(book2);
         library.addBook(book3);
         library.addBook(book4);
+
         return library;
     }
 

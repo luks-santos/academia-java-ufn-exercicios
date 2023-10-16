@@ -6,14 +6,20 @@ import java.util.*;
 public class Library {
 
     private List<Books> bookList;
+    private List<Magazine> magazineList;
 
     public Library() {
         this.bookList = new ArrayList<>();
+        this.magazineList = new ArrayList<>();
     }
 
 
     public void addBook(Books book) {
         bookList.add(book);
+    }
+
+    public void addMagazine(Magazine magazine) {
+        magazineList.add(magazine);
     }
 
     private Books searchByISBN(String isbn) {
@@ -79,5 +85,9 @@ public class Library {
 
     public List<Books> listBooks() {
         return bookList;
+    }
+
+    public List<Magazine> listMagazines() {
+        return magazineList;
     }
 }
