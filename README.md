@@ -1,4 +1,4 @@
-# README do Projeto
+# Atividades Academia Java
 
 Este repositório contém as atividades relacionadas a Academia Java, organizadas em branches de acordo com a semana.
 
