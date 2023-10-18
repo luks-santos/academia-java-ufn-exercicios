@@ -86,7 +86,7 @@ public class Menu {
                     System.out.println(e.getMessage());
                 }
                 System.out.print("Pressione Enter para continuar <-\uD83C\uDFC3\u200D♂\uFE0F");
-                escolha = 0;
+                escolha = 1;
                 sc.nextLine();
             } finally {
                 sc.nextLine();
@@ -131,41 +131,46 @@ public class Menu {
         input("Digite o peso");
         double peso = sc.nextDouble();
 
-        if(tipo == 1) {
-            System.out.println("Escolha o porte do cachorro");
-            System.out.println("1. Pequeno");
-            System.out.println("2. Médio  ");
-            System.out.println("3. Grande ");
-            System.out.println("4. Gigante");
-            System.out.print("> ");
+        try {
+            if(tipo == 1) {
+                System.out.println("Escolha o porte do cachorro");
+                System.out.println("1. Pequeno");
+                System.out.println("2. Médio  ");
+                System.out.println("3. Grande ");
+                System.out.println("4. Gigante");
+                System.out.print("> ");
 
-            int escolhaPorte = sc.nextInt();
-            PorteCachorro porte = switch (escolhaPorte) {
-                case 1 -> PorteCachorro.PEQUENO;
-                case 2 -> PorteCachorro.MEDIO;
-                case 3 -> PorteCachorro.GRANDE;
-                case 4 -> PorteCachorro.GIGANTE;
-                default -> throw new InputMismatchException("Escolha de porte inválida");
-            };
-            return new Cachorro(nome, raca, LocalDate.parse(data, DateTimeFormatter.ofPattern("dd/MM/yyyy")),
-                    proprietario, peso, porte);
-        } else {
-            System.out.println("Escolha o tipo de pelagem do gato");
-            System.out.println("1. Pelo Curto");
-            System.out.println("2. Pelo Médio  ");
-            System.out.println("3. Pelo Longo ");
-            System.out.print("> ");
+                int escolhaPorte = sc.nextInt();
+                PorteCachorro porte = switch (escolhaPorte) {
+                    case 1 -> PorteCachorro.PEQUENO;
+                    case 2 -> PorteCachorro.MEDIO;
+                    case 3 -> PorteCachorro.GRANDE;
+                    case 4 -> PorteCachorro.GIGANTE;
+                    default -> throw new InputMismatchException("Escolha de porte inválida");
+                };
+                return new Cachorro(nome, raca, LocalDate.parse(data, DateTimeFormatter.ofPattern("dd/MM/yyyy")),
+                        proprietario, peso, porte);
+            } else {
+                System.out.println("Escolha o tipo de pelagem do gato");
+                System.out.println("1. Pelo Curto");
+                System.out.println("2. Pelo Médio  ");
+                System.out.println("3. Pelo Longo ");
+                System.out.print("> ");
 
-            int escolhaPelagem = sc.nextInt();
-            TipoPelagemGato pelagemGato = switch (escolhaPelagem) {
-                case 1 -> TipoPelagemGato.PELO_CURTO;
-                case 2 -> TipoPelagemGato.PELO_MEDIO;
-                case 3 -> TipoPelagemGato.PELO_LONGO;
-                default -> throw new InputMismatchException("Escolha de tipo de pelagem inválida");
-            };
-            return new Gato(nome, raca, LocalDate.parse(data, DateTimeFormatter.ofPattern("dd/MM/yyyy")),
-                    proprietario, peso, pelagemGato);
+                int escolhaPelagem = sc.nextInt();
+                TipoPelagemGato pelagemGato = switch (escolhaPelagem) {
+                    case 1 -> TipoPelagemGato.PELO_CURTO;
+                    case 2 -> TipoPelagemGato.PELO_MEDIO;
+                    case 3 -> TipoPelagemGato.PELO_LONGO;
+                    default -> throw new InputMismatchException("Escolha de tipo de pelagem inválida");
+                };
+                return new Gato(nome, raca, LocalDate.parse(data, DateTimeFormatter.ofPattern("dd/MM/yyyy")),
+                        proprietario, peso, pelagemGato);
+            }
+        } catch (DateTimeParseException e) {
+            throw new InputMismatchException("Data de nascimento do pet inválida.");
         }
+
     }
 
     private static Produto cadastrarProduto(Scanner sc) {
@@ -201,8 +206,13 @@ public class Menu {
         if (tipo == 1) {
             input("Digite a data de validade (dd/MM/yyyy)");
             String dataValidade = sc.nextLine();
-            return new Alimento(nome, preco, quantidadeEmEstoque,
-                    LocalDate.parse(dataValidade, DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+            try {
+                return new Alimento(nome, preco, quantidadeEmEstoque,
+                        LocalDate.parse(dataValidade, DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+            } catch (DateTimeParseException e) {
+                throw new InputMismatchException("Data de validade produto inválida");
+            }
+
         }
         else if (tipo == 2) {
             return new Brinquedo(nome, preco, quantidadeEmEstoque);
@@ -279,7 +289,7 @@ public class Menu {
                 return new Agenda(animalSelecionado, new ConsultaVeterinaria(), data, hora);
             }
         } catch (DateTimeParseException e) {
-            throw new InputMismatchException("Data e hora de agendamento inválida");
+            throw new InputMismatchException("Data e/ou hora de agendamento inválida");
         }
     }
 }
