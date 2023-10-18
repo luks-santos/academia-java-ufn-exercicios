@@ -6,9 +6,9 @@ Este repositório contém as atividades relacionadas a Academia Java, organizada
 
 O repositório está organizado da seguinte forma:
 
-- `semana-1`: Atividades da primeira semana do curso.
-- `semana-2`: Atividades da segunda semana do curso.
-- `semana-3`: Atividades da terceira semana do curso.
+- `semana-1`: Introdução Linguagem Java.
+- `semana-2`: Programação Orientada a objetos em Java.
+- `semana-3`: Java e HTML, CSS e JavaScripit.
 - ...
 
 Cada uma das branches de semana contém as atividades relacionadas à semana correspondente. Você pode alternar entre as branches para acessar o conteúdo de cada semana.
