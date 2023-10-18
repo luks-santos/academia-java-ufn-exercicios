@@ -13,7 +13,6 @@ public class Library {
         this.magazineList = new ArrayList<>();
     }
 
-
     public void addBook(Books book) {
         bookList.add(book);
     }
