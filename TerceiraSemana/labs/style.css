@@ -1,0 +1,114 @@
+section{
+    height: 300px;
+}
+
+#div1 {
+    border: 1px solid;
+    background-color: blue;
+    padding: 15px;
+    margin-bottom: 5px;
+}
+
+#div2 {
+    border: 1px solid;
+    background-color: red;
+    padding: 15px;
+    margin-bottom: 5px;
+}
+#div3 {
+    border: 1px solid;
+    background-color: green;
+    padding: 15px;
+    margin-bottom: 5px;
+}
+#div4 {
+    border: 1px solid;
+    background-color: purple;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+
+#esq-cima {
+    background-color: blue;
+    padding: 15px 0px;
+    float: left;
+}
+#dir-cima {
+    background-color: purple;
+    padding: 15px 0px;
+    float: right;
+}
+#esq-baixo {
+    background-color: red;
+    padding: 15px 0px;
+    clear: left;
+    float: left;
+    margin-top: 100px;
+}
+#dir-baixo {
+    background-color: green;
+    padding: 15px 0px;
+    float: right;
+    margin-top: 100px;
+}
+
+#c-esq-cima {
+    background-color: blue;
+    padding: 15px 0px;
+    float: left;
+    border-radius: 50%;
+}
+#c-dir-cima {
+    background-color: purple;
+    padding: 15px 0px;
+    float: right;
+    border-radius: 50%;
+}
+#c-esq-baixo {
+    background-color: red;
+    padding: 15px 0px;
+    clear: left;
+    float: left;
+    margin-top: 100px;
+    border-radius: 50%;
+}
+#c-dir-baixo {
+    background-color: green;
+    padding: 15px 0px;
+    clear: right;
+    float: right;
+    margin-top: 100px;
+    border-radius: 50%;
+}
+
+#item1 {
+    background-color: gray; 
+    padding: 15px; 
+    color: yellow;
+    margin: 3px 3px;
+}
+#item2 {
+    background-color: gray; 
+    padding: 15px; 
+    color: yellow;
+    margin: 3px 3px;
+}
+#item3 {
+    background-color: gray; 
+    padding: 15px; 
+    color: yellow;
+    margin: 3px 3px;
+}
+
+span {
+    margin-left: 10px;
+}
+#item div span:hover {
+    color: gray;
+    background-color: yellow; 
+}
+
+#item {
+    width: 400px;
+}

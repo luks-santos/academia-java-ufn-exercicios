@@ -1,5 +1,6 @@
 body {
     background-color: #f7ebd1;
+    display: grid;
 }
 
 ul {
@@ -20,6 +21,7 @@ li a {
     padding: 14px 16px;
     text-align: center;
     text-decoration: none;
+    font-weight: 900;
 }
 
 li a:hover {
@@ -27,8 +29,8 @@ li a:hover {
 }
 
 ul li a.activate {
-    background-color: #323F4C; 
     color: #fff;
+    text-decoration: underline;
 }
 
 footer {
@@ -58,22 +60,21 @@ tr:nth-child(even) {
     background-color: #f5dfaf; 
 }
 
-.header {
+#header {
     background-color:  #323F4C;
-    display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 10px;
     color: #ffffff;
+    display: flex;
 }
 
-
-.header h2 {
+#header h2 {
     margin-left: 50%;
     transform: translateX(-50%);
 }
 
-.header form {
+#header form {
     padding: 40px 20px;
     text-align: right;
 }
@@ -96,5 +97,6 @@ tr:nth-child(even) {
 }
 
 .destaque p {
-    margin-top: 10px; /* Espaçamento entre o texto e as imagens */
+    margin-top: 10px; 
 }
+
