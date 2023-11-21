@@ -12,7 +12,7 @@ O repositório está organizado da seguinte forma:
 - `semana-4`: Logging java e Maven.
 - `semana-5`: SQL.
 - `semana-6`: JDBC, JPA e Hibernate.
-- `semana-7`: JPA e Hibernate.
+- `semana-7`: JPA Hibernate e Servlet.
 - `semana-8`: Spring Boot.
 
 Cada uma das branches de semana contém as atividades relacionadas à semana correspondente. Você pode alternar entre as branches para acessar o conteúdo de cada semana.
