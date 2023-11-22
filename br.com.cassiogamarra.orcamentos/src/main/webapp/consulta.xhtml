@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+    <title>Exemplo JSF</title>
+</h:head>
+<h:body>
+    <h:form>
+        <h:inputText value="#{pesquisaBean.entrada}" />
+        <h:commandButton value="Enviar" action="#{pesquisaBean.processarFormulario}" />
+    </h:form>
+    <h:outputText value="#{pesquisaBean.mensagem}" />
+</h:body>
+</html>
