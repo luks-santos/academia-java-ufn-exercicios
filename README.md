@@ -13,5 +13,6 @@ O repositório está organizado da seguinte forma:
 - `semana-5`: SQL.
 - `semana-6`: JDBC, JPA e Hibernate.
 - `semana-7`: JPA Hibernate e Servlet.
-- `semana-8`: Spring Boot e JSF.
+- `semana-8`: Spring Boot, JSF e Angular.
+- `semana-9`: Spring Boot, Docker e Angular.
 
