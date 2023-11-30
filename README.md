@@ -1,6 +1,6 @@
 # Atividades Academia Java
 
-Este repositório contém as atividades relacionadas a Academia Java, organizadas em branches de acordo com a semana.
+Este repositório contém as atividades relacionadas a Academia Java
 
 ## Estrutura do Repositório
 
@@ -15,4 +15,3 @@ O repositório está organizado da seguinte forma:
 - `semana-7`: JPA Hibernate e Servlet.
 - `semana-8`: Spring Boot e JSF.
 
-Cada uma das branches de semana contém as atividades relacionadas à semana correspondente. Você pode alternar entre as branches para acessar o conteúdo de cada semana.
